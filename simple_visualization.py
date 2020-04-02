@@ -37,12 +37,12 @@ class Covid(object):
         austria = {'data_type':'confirmed', 'data_line':self.data_line('Austria', ''), 'population':8999973, 'population_source':POP_DATA_SOURCE_EUROPE}
         uk = {'data_type':'confirmed', 'data_line':self.data_line('United Kingdom', ''), 'population': 	67803450, 'population_source':POP_DATA_SOURCE_EUROPE}
 
-        us = {'data_type':'confirmed', 'data_line':self.data_line('US', ''), 'population': 19453561, 'population_source':'https://en.wikipedia.org/wiki/New_York_(state)'}
-        #iran = {'dataline':157, 'population':1266800, 'population_information_source':'https://en.wikipedia.org/wiki/Demographics_of_Iran'}
-        #south_korea = {'dataline':158, 'population':51635256 , 'population_information_source':'https://en.wikipedia.org/wiki/Demographics_of_Iran'}
+        us = {'data_type':'confirmed', 'data_line':self.data_line('US', ''), 'population': 329.45e9 , 'population_source':'https://worldpopulationreview.com/countries/united-states-population/'}
+        iran = {'data_type':'confirmed', 'data_line':self.data_line('Iran', ''), 'population':82913906, 'population_source':'https://en.wikipedia.org/wiki/Demographics_of_Iran'}
+        south_korea = {'data_type':'confirmed', 'data_line':self.data_line('Korea, South', ''), 'population':51635256 , 'population_source':''}
 
 
-        country_list = [italy, switzerland, norway, denmark, spain, sweden, austria, uk, germany, france, netherlands, belgium]
+        country_list = [spain, italy, switzerland, norway, denmark, sweden, austria, uk, germany, france, netherlands, belgium, us, iran, south_korea]
         filename = 'relative_cases.png'
         title = "relative COVID-19 confirmed cases \n cases data from https://github.com/CSSEGISandData/COVID-19 \n population data from https://en.wikipedia.org/wiki/List_of_European_countries_by_population"
         self.plot_graph_relative(country_list, title, filename)
@@ -95,7 +95,7 @@ class Covid(object):
 
     def plot_graph_relative(self, country_list, title, filename):
             fig = plt.figure()
-            scale_factor = 0.7
+            scale_factor = 1.0
             fig.set_size_inches(14.1*scale_factor,10*scale_factor)
             ax = fig.add_subplot(1, 1, 1)
 
@@ -113,7 +113,7 @@ class Covid(object):
             ax.set_title(title)
             ax.set_ylabel('relative cases per country population in ‰')
             ax.grid(True)
-
+            plt.yscale('log')
             plt.legend(loc='upper left')
             plt.savefig('output/' + filename)
             plt.close('all')
@@ -121,7 +121,7 @@ class Covid(object):
 
     def plot_graph_absolute(self, country_list, title, filename):
             fig = plt.figure()
-            scale_factor = 0.7
+            scale_factor = 1.0
             fig.set_size_inches(14.1*scale_factor,10*scale_factor)
             ax = fig.add_subplot(1, 1, 1)
 
@@ -139,6 +139,7 @@ class Covid(object):
             ax.set_title(title)
             ax.set_ylabel('absolute cases')
             ax.grid(True)
+            plt.yscale('log')
 
             plt.legend(loc='upper left')
             plt.savefig('output/' + filename)
