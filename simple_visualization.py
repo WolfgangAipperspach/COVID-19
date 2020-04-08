@@ -113,7 +113,7 @@ class Covid(object):
             ax.set_title(title)
             ax.set_ylabel('relative cases per country population in ‰')
             ax.grid(True)
-            plt.yscale('log')
+            #plt.yscale('log')
             plt.legend(loc='upper left')
             plt.savefig('output/' + filename)
             plt.close('all')
@@ -139,7 +139,7 @@ class Covid(object):
             ax.set_title(title)
             ax.set_ylabel('absolute cases')
             ax.grid(True)
-            plt.yscale('log')
+            #plt.yscale('log')
 
             plt.legend(loc='upper left')
             plt.savefig('output/' + filename)
