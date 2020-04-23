@@ -43,6 +43,9 @@ class Covid(object):
 
 
         country_list = [spain, italy, switzerland, norway, denmark, sweden, austria, uk, germany, france, netherlands, belgium, us, iran, south_korea]
+        
+        country_list = [spain, italy, switzerland, germany, france, us, iran, south_korea]
+        
         filename = 'relative_cases.png'
         title = "relative COVID-19 confirmed cases \n cases data from https://github.com/CSSEGISandData/COVID-19 \n population data from https://en.wikipedia.org/wiki/List_of_European_countries_by_population"
         self.plot_graph_relative(country_list, title, filename)
