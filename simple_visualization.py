@@ -43,6 +43,7 @@ class Covid(object):
 
 
         country_list = [spain, italy, switzerland, norway, denmark, sweden, austria, uk, germany, france, netherlands, belgium, us, iran, south_korea]
+        country_list = [spain, italy, switzerland, austria, uk, germany, france]
         #country_list = [spain, italy, switzerland, germany, france, us, iran, south_korea]
         #country_list = [spain]
 
