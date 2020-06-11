@@ -37,30 +37,109 @@ class Covid(object):
         austria = {'data_type':'confirmed', 'data_line':self.data_line('Austria', ''), 'population':8999973, 'population_source':POP_DATA_SOURCE_EUROPE}
         uk = {'data_type':'confirmed', 'data_line':self.data_line('United Kingdom', ''), 'population': 	67803450, 'population_source':POP_DATA_SOURCE_EUROPE}
 
+        # south america
+        brazil = {'data_type':'confirmed', 'data_line':self.data_line('Brazil', ''), 'population': 	212480854, 'population_source':'https://www.worldometers.info/world-population/brazil-population'}
+        chile = {'data_type':'confirmed', 'data_line':self.data_line('Chile', ''), 'population': 	19107657, 'population_source':'https://www.worldometers.info/world-population/brazil-population'}
+        peru = {'data_type':'confirmed', 'data_line':self.data_line('Peru', ''), 'population': 	32947778, 'population_source':'https://www.worldometers.info/world-population/brazil-population'}
+        argentina = {'data_type':'confirmed', 'data_line':self.data_line('Argentina', ''), 'population': 	45174171, 'population_source':'https://www.worldometers.info/world-population/brazil-population'}
+        uruguay = {'data_type':'confirmed', 'data_line':self.data_line('Uruguay', ''), 'population': 	3473107, 'population_source':'https://www.worldometers.info/world-population/brazil-population'}
+        paraguay = {'data_type':'confirmed', 'data_line':self.data_line('Paraguay', ''), 'population': 	7127957, 'population_source':'https://www.worldometers.info/world-population/brazil-population'}
+        bolivia = {'data_type':'confirmed', 'data_line':self.data_line('Bolivia', ''), 'population': 	11554681, 'population_source':'https://www.worldometers.info/world-population/brazil-population'}
+        ecuador = {'data_type':'confirmed', 'data_line':self.data_line('Ecuador', ''), 'population': 	17628994, 'population_source':'https://www.worldometers.info/world-population/brazil-population'}
+        colombia = {'data_type':'confirmed', 'data_line':self.data_line('Colombia', ''), 'population': 	50854591, 'population_source':'https://www.worldometers.info/world-population/brazil-population'}
+        venezuela = {'data_type':'confirmed', 'data_line':self.data_line('Venezuela', ''), 'population': 	28440073, 'population_source':'https://www.worldometers.info/world-population/brazil-population'}
+        guyana = {'data_type':'confirmed', 'data_line':self.data_line('Guyana', ''), 'population': 	786355, 'population_source':'https://www.worldometers.info/world-population/brazil-population'}
+        suriname = {'data_type':'confirmed', 'data_line':self.data_line('Suriname', ''), 'population': 	586358, 'population_source':'https://www.worldometers.info/world-population/brazil-population'}
+        frenchguiana = {'data_type':'confirmed', 'data_line':self.data_line('France', 'French Guiana'), 'population': 	298270, 'population_source':'https://www.worldometers.info/world-population/brazil-population'}
+
         us = {'data_type':'confirmed', 'data_line':self.data_line('US', ''), 'population': 329.45e9 , 'population_source':'https://worldpopulationreview.com/countries/united-states-population/'}
+        mexico = {'data_type':'confirmed', 'data_line':self.data_line('Mexico', ''), 'population': 128862111, 'population_source':'https://worldpopulationreview.com/countries/united-states-population/'}
+        canada = {'data_type':'confirmed', 'data_line':self.data_line('Canada', ''), 'population': 37724937, 'population_source':'https://worldpopulationreview.com/countries/united-states-population/'}
+        
+        
         iran = {'data_type':'confirmed', 'data_line':self.data_line('Iran', ''), 'population':82913906, 'population_source':'https://en.wikipedia.org/wiki/Demographics_of_Iran'}
         south_korea = {'data_type':'confirmed', 'data_line':self.data_line('Korea, South', ''), 'population':51635256 , 'population_source':''}
+     
 
-
-        country_list = [spain, italy, switzerland, norway, denmark, sweden, austria, uk, germany, france, netherlands, belgium, us, iran, south_korea]
-        country_list = [spain, italy, switzerland, austria, uk, germany, france]
-        #country_list = [spain, italy, switzerland, germany, france, us, iran, south_korea]
-        #country_list = [spain]
-
-        filename = 'relative_cases.png'
+        filename = 'relative_cases_europe.png'
         title = "relative COVID-19 confirmed cases \n cases data from https://github.com/CSSEGISandData/COVID-19 \n population data from https://en.wikipedia.org/wiki/List_of_European_countries_by_population"
-        self.plot_graph_relative(country_list, title, filename)
+        country_list_europe= [spain, italy, switzerland, austria, uk, germany, france, sweden]
+        self.plot_graph_relative(   country_list_europe,
+                                    title,
+                                    filename)
 
-        filename = 'absolute_cases.png'
-        title = "COVID-19 confirmed cases \n data from https://github.com/CSSEGISandData/COVID-19"
-        self.plot_graph_absolute(country_list, title, filename)
+        
+        filename = 'relative_cases_north_america.png'
+        title = "relative COVID-19 confirmed cases \n cases data from https://github.com/CSSEGISandData/COVID-19 \n population data from https://www.worldometers.info/world-population/brazil-population'}"
+        country_list_north_america = [us, mexico]
+        self.plot_graph_relative(   country_list_north_america, 
+                                    title,
+                                    filename)
+        
+        
+        filename = 'relative_cases_south_america.png'
+        title = "relative COVID-19 confirmed cases \n cases data from https://github.com/CSSEGISandData/COVID-19 \n population data from https://www.worldometers.info/world-population/brazil-population'}"
+        country_list_south_america = [brazil, chile, peru, argentina, uruguay, paraguay, bolivia, ecuador, colombia, venezuela, guyana, suriname, frenchguiana]
+        self.plot_graph_relative(   country_list_south_america, 
+                                    title,
+                                    filename)
 
-        filename = 'absolute_deaths.png'
-        title = "COVID-19 deaths \n data from https://github.com/CSSEGISandData/COVID-19"
-        for c in country_list:
-            c['data_type'] = 'deaths'
-        self.plot_graph_absolute(country_list, title, filename)
 
+        #filename = 'absolute_cases.png'
+        #title = "COVID-19 confirmed cases \n data from https://github.com/CSSEGISandData/COVID-19"
+        #self.plot_graph_absolute(   country_list, 
+        #                           title, 
+        #                            filename)
+
+        #filename = 'absolute_deaths.png'
+        #title = "COVID-19 deaths \n data from https://github.com/CSSEGISandData/COVID-19"
+        #for c in country_list:
+        #    c['data_type'] = 'deaths'
+        #self.plot_graph_absolute(   country_list,
+        #                            title, 
+        #                            filename)
+        lines = self.data_lines_country_only('Canada')
+        #data_lines = self.add_data_lines('confirmed', lines)
+        tld, tlv, label = self.get_sum_data('confirmed', lines)
+        print(tld)
+        print(tlv)
+        print(label)
+
+
+
+
+
+    def data_lines_country_only(self, country):
+        lines = []
+        n_lines = self.data['confirmed'].shape[0]
+        for data_line in range(n_lines):
+            _country = str(self.data['confirmed'].iloc[data_line,1])
+            if _country == country:
+                lines.append(data_line)
+        return lines
+
+    
+    
+    def tl_update (self, tld0, tlv0, tld1, tlv1):
+        for i,d in enumerate(tld1):
+            try:
+                j = tld0.index(d)
+                tlv0[j] += tlv1[j] # add value into existing value
+            except:
+                tld0.append(d)      #append new day
+                tlv0.append(tlv1[i])    #append new value
+        return tld0,tlv0
+
+
+
+    
+    def get_sum_data(self, data_type, data_lines):
+        tlv_sum = []
+        tld_sum= []
+        for data_line in data_lines:
+            (tld, tlv, label) = self.get_data(data_type, data_line)
+            (tld_sum, tlv_sum) = self.tl_update(tld_sum, tlv_sum, tld, tlv)
+        return (tld_sum, tlv_sum, label)
 
 
     def data_line(self, country, province):
@@ -78,9 +157,9 @@ class Covid(object):
         return -1
 
     def get_data(self, data_type, data_line):
-        tl = self.data[data_type].iloc[data_line,4:]
-        tld = [datetime.strptime(date, '%m/%d/%y') for date in tl.index]
-        tlv = [tl.loc[i] for i in tl.index]
+        tl = self.data[data_type].iloc[data_line,4:] 
+        tld = [datetime.strptime(date, '%m/%d/%y') for date in tl.index] # tld = time line day = datetime object
+        tlv = [tl.loc[i] for i in tl.index] # tlv = time line value = value of that day
         country = self.data[data_type].iloc[data_line,1]
         province = self.data[data_type].iloc[data_line,0]
         #print(country)
