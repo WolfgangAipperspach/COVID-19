@@ -31,5 +31,5 @@ jobs:
         
     - name: update
       run: |
-        simple_visualization
+        python simple_visualization.py
         
