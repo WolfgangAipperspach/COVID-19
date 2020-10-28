@@ -36,6 +36,8 @@ class Covid(object):
         belgium = {'data_type':'confirmed', 'data_line':self.data_line('Belgium', ''), 'population':11579502, 'population_source':POP_DATA_SOURCE_EUROPE}
         austria = {'data_type':'confirmed', 'data_line':self.data_line('Austria', ''), 'population':8999973, 'population_source':POP_DATA_SOURCE_EUROPE}
         uk = {'data_type':'confirmed', 'data_line':self.data_line('United Kingdom', ''), 'population': 	67803450, 'population_source':POP_DATA_SOURCE_EUROPE}
+        czechia = {'data_type':'confirmed', 'data_line':self.data_line('Czechia', ''), 'population': 	10693939, 'population_source':POP_DATA_SOURCE_EUROPE}
+
 
         us = {'data_type':'confirmed', 'data_line':self.data_line('US', ''), 'population': 329.45e9 , 'population_source':'https://worldpopulationreview.com/countries/united-states-population/'}
         iran = {'data_type':'confirmed', 'data_line':self.data_line('Iran', ''), 'population':82913906, 'population_source':'https://en.wikipedia.org/wiki/Demographics_of_Iran'}
@@ -43,7 +45,7 @@ class Covid(object):
 
 
         #country_list = [spain, italy, switzerland, norway, denmark, sweden, austria, uk, germany, france, netherlands, belgium, us, iran, south_korea]
-        country_list = [spain, italy, switzerland, uk, germany, france, belgium, netherlands, norway,sweden]
+        country_list = [spain, belgium, netherlands, czechia, italy, switzerland, uk, germany, france,  norway, sweden]
        
 
         filename = 'relative_cases.png'
